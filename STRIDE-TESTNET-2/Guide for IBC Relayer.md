@@ -38,7 +38,7 @@
       - Pay attention to below parameter **rpc_addr, grpc_addr, websocket_addr**           
          + If Hermes and your fullnode are on same vps, format of these parameter will be:  rpc_addr='http://localhost:RPC_PORT' (Rerfe step 5)  
          + If Hermes and your fullnode are on different vps, format of these parameter will be: rpc_addr='http://VPS_IP:RPC_PORT' (Refer step 5)         
-      - The parameter **keyname** must be same as name of wallet to be added into Hermes later
+      - The parameter **key_name** must be same as name of wallet to be added into Hermes later
   
 _7.1   Example of Config.toml for JUNO & STRIDE (STRIDE and HERMES are on same VPS, JUNO is on another one)_
 ```
