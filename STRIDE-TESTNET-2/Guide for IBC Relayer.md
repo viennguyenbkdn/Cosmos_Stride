@@ -9,26 +9,26 @@
 
 2. Your Stride fully synced fullnode 
 
-3. Set indexer to kv on each chain
-        ```
-        sed -i -e "s/^indexer *=.*/indexer = \"kv\"/" $HOME/.stride/config/config.toml
-        sed -i -e "s/^indexer *=.*/indexer = \"kv\"/" $HOME/.juno/config/config.toml
-        sed -i -e "s/^indexer *=.*/indexer = \"kv\"/" $HOME/.gaia/config/config.toml
-        ```
+3. Set indexer to kv on each chain  
 
-4. Expose your RPC endpoint to public, then Hermes can be reached (If Hermes and your fullnodes are same vps, no need to do it)
+        sed -i -e "s/^indexer *=.*/indexer = \"kv\"/" $HOME/.stride/config/config.toml
+        sed -i -e "s/^indexer *=.*/indexer = \"kv\"/" $HOME/.juno/config/config.toml  
+        sed -i -e "s/^indexer *=.*/indexer = \"kv\"/" $HOME/.gaia/config/config.toml  
+        
+
+4. Expose your RPC endpoint to public, then Hermes can be reached (If Hermes and your fullnodes are same vps, no need to do it)   
         ```
-        sed -i.bak -e 's|^laddr = \"tcp:\/\/.*:\([0-9].*\)57\"|laddr = \"tcp:\/\/0\.0\.0\.0:\157\"|' $HOME/.stride/config/config.toml
-        sed -i.bak -e 's|^laddr = \"tcp:\/\/.*:\([0-9].*\)57\"|laddr = \"tcp:\/\/0\.0\.0\.0:\157\"|' $HOME/.juno/config/config.toml
-        sed -i.bak -e 's|^laddr = \"tcp:\/\/.*:\([0-9].*\)57\"|laddr = \"tcp:\/\/0\.0\.0\.0:\157\"|' $HOME/.gaia/config/config.toml
+        sed -i.bak -e 's|^laddr = \"tcp:\/\/.*:\([0-9].*\)57\"|laddr = \"tcp:\/\/0\.0\.0\.0:\157\"|' $HOME/.stride/config/config.toml  
+        sed -i.bak -e 's|^laddr = \"tcp:\/\/.*:\([0-9].*\)57\"|laddr = \"tcp:\/\/0\.0\.0\.0:\157\"|' $HOME/.juno/config/config.toml  
+        sed -i.bak -e 's|^laddr = \"tcp:\/\/.*:\([0-9].*\)57\"|laddr = \"tcp:\/\/0\.0\.0\.0:\157\"|' $HOME/.gaia/config/config.toml  
         ```
 
 5. Restart fullnode after changing in step 3 & 4
 
 6. Install Hermes binary
         ```
-        mkdir -p $HOME/.hermes/bin
-        cd $HOME/.hermes/bin
+        mkdir -p $HOME/.hermes/bin  
+        cd $HOME/.hermes/bin  
         wget https://github.com/informalsystems/ibc-rs/releases/download/v1.0.0-rc.0/hermes-v1.0.0-rc.0-x86_64-unknown-linux-gnu.tar.gz
         tar -C $HOME/.hermes/bin/ -vxzf hermes-v1.0.0-rc.0-x86_64-unknown-linux-gnu.tar.gz
         echo 'export PATH="$HOME/.hermes/bin:$PATH"' >> $HOME/.bash_profile
