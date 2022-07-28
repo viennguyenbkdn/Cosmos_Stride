@@ -17,24 +17,23 @@
         
 
 4. Expose your RPC endpoint to public, then Hermes can be reached (If Hermes and your fullnodes are same vps, no need to do it)   
-        ```
+
         sed -i.bak -e 's|^laddr = \"tcp:\/\/.*:\([0-9].*\)57\"|laddr = \"tcp:\/\/0\.0\.0\.0:\157\"|' $HOME/.stride/config/config.toml  
         sed -i.bak -e 's|^laddr = \"tcp:\/\/.*:\([0-9].*\)57\"|laddr = \"tcp:\/\/0\.0\.0\.0:\157\"|' $HOME/.juno/config/config.toml  
         sed -i.bak -e 's|^laddr = \"tcp:\/\/.*:\([0-9].*\)57\"|laddr = \"tcp:\/\/0\.0\.0\.0:\157\"|' $HOME/.gaia/config/config.toml  
-        ```
+	        
 
 5. Restart fullnode after changing in step 3 & 4
 
 6. Install Hermes binary
-        ```
-        mkdir -p $HOME/.hermes/bin  
+
+		mkdir -p $HOME/.hermes/bin  
         cd $HOME/.hermes/bin  
         wget https://github.com/informalsystems/ibc-rs/releases/download/v1.0.0-rc.0/hermes-v1.0.0-rc.0-x86_64-unknown-linux-gnu.tar.gz
         tar -C $HOME/.hermes/bin/ -vxzf hermes-v1.0.0-rc.0-x86_64-unknown-linux-gnu.tar.gz
         echo 'export PATH="$HOME/.hermes/bin:$PATH"' >> $HOME/.bash_profile
         source $HOME/.bash_profile
         hermes version
-        ```  
 
 7. Make configuration data for Hermes:   
   Note: 
@@ -303,43 +302,43 @@ EOF
     ![image](https://user-images.githubusercontent.com/91453629/181575011-a88a3240-ef87-4828-8001-28ded96b78ed.png)
 
 12. Try to send raw data between 2 relayers via established channel ID (optional)   
-    ```
+	```
     ### Example for Juno & Stride
     root@Contabo16g-204:~/.hermes# hermes tx raw ft-transfer --dst-chain STRIDE-TESTNET-2 --src-chain uni-3 --src-port transfer --src-channel channel-154 --amount 1000 --denom ujunox --timeout-height-offset 1000 --number-msgs 1
-2022-07-28T06:05:10.932566Z  INFO ThreadId(01) using default configuration from '/root/.hermes/config.toml'
-2022-07-28T06:05:11.017838Z  INFO ThreadId(09) wait_for_block_commits: waiting for commit of tx hashes(s) 3DA3A81F21F0BC44D4294D2B0D245DB8213E31AB5A205A133C4A14AFC52D6ABB id=uni-3
-Success: [
-    SendPacket(
-        SendPacket - h:3-987116, seq:3, path:channel-154/transfer->channel-32/transfer, toh:2-14940, tos:Timestamp(NoTimestamp)),
-    ),
-]
+	2022-07-28T06:05:10.932566Z  INFO ThreadId(01) using default configuration from '/root/.hermes/config.toml'
+	2022-07-28T06:05:11.017838Z  INFO ThreadId(09) wait_for_block_commits: waiting for commit of tx hashes(s) 3DA3A81F21F0BC44D4294D2B0D245DB8213E31AB5A205A133C4A14AFC52D6ABB id=uni-3
+	Success: [
+    	SendPacket(
+        	SendPacket - h:3-987116, seq:3, path:channel-154/transfer->channel-32/transfer, toh:2-14940, tos:Timestamp(NoTimestamp)),
+    	),
+	]
 
-root@Contabo16g-204:~/.hermes# hermes tx raw ft-transfer --dst-chain uni-3 --src-chain STRIDE-TESTNET-2 --src-port transfer --src-channel channel-32 --amount 1000 --denom ustrd --timeout-height-offset 1000 --number-msgs 1
-2022-07-28T06:07:22.864250Z  INFO ThreadId(01) using default configuration from '/root/.hermes/config.toml'
-2022-07-28T06:07:33.214633Z  INFO ThreadId(09) wait_for_block_commits: waiting for commit of tx hashes(s) 2A31B32C77DE2AE9564C0F41A28BC914DF08040A0B503319E801B78121E1AFEB id=STRIDE-TESTNET-2
-Success: [
-    SendPacket(
-        SendPacket - h:2-13951, seq:4, path:channel-32/transfer->channel-154/transfer, toh:3-988135, tos:Timestamp(NoTimestamp)),
-    ),
-]
+	root@Contabo16g-204:~/.hermes# hermes tx raw ft-transfer --dst-chain uni-3 --src-chain STRIDE-TESTNET-2 --src-port transfer --src-channel channel-32 --amount 1000 --denom ustrd --timeout-height-offset 1000 --number-msgs 1
+	2022-07-28T06:07:22.864250Z  INFO ThreadId(01) using default configuration from '/root/.hermes/config.toml'
+	2022-07-28T06:07:33.214633Z  INFO ThreadId(09) wait_for_block_commits: waiting for commit of tx hashes(s) 2A31B32C77DE2AE9564C0F41A28BC914DF08040A0B503319E801B78121E1AFEB id=STRIDE-TESTNET-2
+	Success: [
+    	SendPacket(
+        	SendPacket - h:2-13951, seq:4, path:channel-32/transfer->channel-154/transfer, toh:3-988135, tos:Timestamp(NoTimestamp)),
+    	),
+	]
     
     ### Example for GAIA & Stride
     root@Contabo32g:~/.hermes# hermes tx raw ft-transfer --dst-chain GAIA --src-chain STRIDE-TESTNET-2 --src-port transfer --src-channel channel-0 --amount 1000 --denom ustrd --timeout-height-offset 1000 --number-msgs 1
-2022-07-28T10:54:56.184868Z  INFO ThreadId(01) using default configuration from '/root/.hermes/config.toml'
-2022-07-28T10:54:58.342749Z  INFO ThreadId(10) wait_for_block_commits: waiting for commit of tx hashes(s) 93CD35E9E449ACD34EA74C31D0E9C691709F610003FC6630D1027179DDDE312C id=STRIDE-TESTNET-2
-Success: [
-    SendPacket(
-        SendPacket - h:2-15333, seq:580, path:channel-0/transfer->channel-0/transfer, toh:0-25850, tos:Timestamp(NoTimestamp)),
-    ),
-]
-root@Contabo32g:~/.hermes# hermes tx raw ft-transfer --dst-chain STRIDE-TESTNET-2 --src-chain GAIA --src-port transfer --src-channel channel-0 --amount 1000 --denom uatom --timeout-height-offset 1000 --number-msgs 1
-2022-07-28T10:55:45.959731Z  INFO ThreadId(01) using default configuration from '/root/.hermes/config.toml'
-2022-07-28T10:55:46.607686Z  INFO ThreadId(11) wait_for_block_commits: waiting for commit of tx hashes(s) 4BB7B4D671D69F95E69B5D88361C9724BA8FE0B1D2CAABAAC289D43DE2D368EF id=GAIA
-Success: [
-    SendPacket(
-        SendPacket - h:0-24861, seq:692, path:channel-0/transfer->channel-0/transfer, toh:2-16337, tos:Timestamp(NoTimestamp)),
-    ),
-]
-root@Contabo32g:~/.hermes#
+	2022-07-28T10:54:56.184868Z  INFO ThreadId(01) using default configuration from '/root/.hermes/config.toml'
+	2022-07-28T10:54:58.342749Z  INFO ThreadId(10) wait_for_block_commits: waiting for commit of tx hashes(s) 93CD35E9E449ACD34EA74C31D0E9C691709F610003FC6630D1027179DDDE312C id=STRIDE-TESTNET-2
+	Success: [
+    	SendPacket(
+        	SendPacket - h:2-15333, seq:580, path:channel-0/transfer->channel-0/transfer, toh:0-25850, tos:Timestamp(NoTimestamp)),
+    	),
+	]
+	root@Contabo32g:~/.hermes# hermes tx raw ft-transfer --dst-chain STRIDE-TESTNET-2 --src-chain GAIA --src-port transfer --src-channel channel-0 --amount 1000 --denom uatom --timeout-height-offset 1000 --number-msgs 1
+	2022-07-28T10:55:45.959731Z  INFO ThreadId(01) using default configuration from '/root/.hermes/config.toml'
+	2022-07-28T10:55:46.607686Z  INFO ThreadId(11) wait_for_block_commits: waiting for commit of tx hashes(s) 4BB7B4D671D69F95E69B5D88361C9724BA8FE0B1D2CAABAAC289D43DE2D368EF id=GAIA
+	Success: [
+    	SendPacket(
+        	SendPacket - h:0-24861, seq:692, path:channel-0/transfer->channel-0/transfer, toh:2-16337, tos:Timestamp(NoTimestamp)),
+    	),
+	]
+	root@Contabo32g:~/.hermes#
     ```
   
