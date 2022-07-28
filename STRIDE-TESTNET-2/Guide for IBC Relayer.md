@@ -341,4 +341,6 @@ EOF
 	]
 	root@Contabo32g:~/.hermes#
     ```
-  
+
+14. Check transaction of your wallet on explorer to findout the message Update Client (IBC)
+![image](https://user-images.githubusercontent.com/91453629/181577502-5d7b2e12-f7f5-4edb-bd36-b05d2e1cf500.png)
