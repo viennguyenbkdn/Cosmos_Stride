@@ -222,16 +222,16 @@ EOF
 8.1 For new wallet (bypass 8.2 if do 8.1)
     - Create new one then apply faucet  
       ```
-      strided keys add stride-rly --output json > /root/.hermes/stride-rly.json
-      gaiad keys add gaid-rly --output json > /root/.hermes/gaia-rly.json
-      junod keys add juno-rly --output json > /root/.hermes/juno-rly.json
+      strided keys add stride-rly --output json | jq > /root/.hermes/stride-rly.json
+      gaiad keys add gaid-rly --output json | jq > /root/.hermes/gaia-rly.json
+      junod keys add juno-rly --output json | jq > /root/.hermes/juno-rly.json
       ```   
   8.2 For current using wallet (bypass 8.1 if you do 8.2)  
     - Create json file of corresponding wallet on each chain with below format       
       
     ###### STRIDE wallet #####
     ### Export json file
-    strided keys show WALLET_NAME --output json > /root/.hermes/stride-rly.json
+    strided keys show WALLET_NAME --output json | jq > /root/.hermes/stride-rly.json
     
     ### Show json file
     cat /root/.hermes/stride-rly.json
@@ -239,7 +239,7 @@ EOF
         "name":"stride-rly",
         "type":"local",
         "address":"WALLET-ADDRESS",
-        "pubkey":"{\"@type\":\"/cosmos.crypto.secp256k1.PubKey\",\"key\":\"PUBLIC-KEY\"}",    
+        "pubkey":"{\"@type\":\"/cosmos.crypto.secp256k1.PubKey\",\"key\":\"PUBLIC-KEY\"}"    
     }
     
     ### Add 24 seed phrases of wallet into json file, after that the file will be as below
@@ -253,8 +253,8 @@ EOF
     }        
     
     ### Do the same for GAIA wallet and Juno wallet
-    gaiad keys show WALLET_NAME --output json > /root/.hermes/gaia-rly.json
-    junod keys show WALLET_NAME --output json > /root/.hermes/juno-rly.json
+    gaiad keys show WALLET_NAME --output json | jq > /root/.hermes/gaia-rly.json
+    junod keys show WALLET_NAME --output json | jq > /root/.hermes/juno-rly.json
  
 9. Import wallet into hermes   
     ```
