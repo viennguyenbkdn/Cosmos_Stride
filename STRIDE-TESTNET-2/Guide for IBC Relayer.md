@@ -252,7 +252,7 @@ EOF
         "mnemonic":"24 seed phrases"
     }        
     
-    ### Do the same for GAIA or Juno wallet as above to create json file, then import key to Hermes as below
+    ### Do the same for GAIA or Juno wallet as above to create json file
     gaiad keys show WALLET_NAME --output json | jq > /root/.hermes/gaia-rly.json
     junod keys show WALLET_NAME --output json | jq > /root/.hermes/juno-rly.json
  
