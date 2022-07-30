@@ -3,7 +3,7 @@
     + If you intend to setup your own node, follow below guideline from kjnode
         - [Juno node setup guide](https://github.com/kj89/testnet_manuals/tree/main/juno)
         - [GAIA node setup guide](https://github.com/kj89/testnet_manuals/tree/main/stride/GAIA/README.md)
-    + Otherwise, you can use some RPC public endpoint of GAIA or Juno fullnode
+    + Otherwise, you can use some RPC public endpoints of GAIA or Juno fullnode
 
 2. Your Stride fully synced fullnode 
 
@@ -14,7 +14,7 @@
         sed -i -e "s/^indexer *=.*/indexer = \"kv\"/" $HOME/.gaia/config/config.toml  
         
 
-4. Expose your RPC endpoint to public, then Hermes can be reached (If Hermes and your fullnodes are same vps, no need to do it)   
+4. Expose your RPC endpoint to public, then Hermes can be reached (If Hermes and your fullnodes are on same vps, no need to do it)   
 
         sed -i.bak -e 's|^laddr = \"tcp:\/\/.*:\([0-9].*\)57\"|laddr = \"tcp:\/\/0\.0\.0\.0:\157\"|' $HOME/.stride/config/config.toml  
         sed -i.bak -e 's|^laddr = \"tcp:\/\/.*:\([0-9].*\)57\"|laddr = \"tcp:\/\/0\.0\.0\.0:\157\"|' $HOME/.juno/config/config.toml  
@@ -25,7 +25,7 @@
 
 6. Install Hermes binary
 
-		mkdir -p $HOME/.hermes/bin  
+	mkdir -p $HOME/.hermes/bin  
         cd $HOME/.hermes/bin  
         wget https://github.com/informalsystems/ibc-rs/releases/download/v1.0.0-rc.0/hermes-v1.0.0-rc.0-x86_64-unknown-linux-gnu.tar.gz
         tar -C $HOME/.hermes/bin/ -vxzf hermes-v1.0.0-rc.0-x86_64-unknown-linux-gnu.tar.gz
@@ -35,7 +35,7 @@
 
 7. Make configuration data for Hermes:   
   Note: 
-      - Pay attention to below parameter **rpc_addr, grpc_addr, websocket_addr**           
+      - Pay attention to following parameters **rpc_addr, grpc_addr, websocket_addr**           
          + If Hermes and your fullnode are on same vps, format of these parameter will be:  rpc_addr='http://localhost:RPC_PORT' (Rerfe step 5)  
          + If Hermes and your fullnode are on different vps, format of these parameter will be: rpc_addr='http://VPS_IP:RPC_PORT' (Refer step 5)         
       - The parameter **key_name** must be same as name of wallet to be added into Hermes later
