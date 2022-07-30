@@ -86,7 +86,7 @@ address_type = { derivation = 'cosmos' }
 store_prefix = 'ibc'
 default_gas = 100000
 max_gas = 4000000
-gas_price = { price = 0.001, denom = 'ustrd' }
+gas_price = { price = 0.0025, denom = 'ustrd' }
 gas_multiplier = 1.2
 max_msg_num = 30
 max_tx_size = 2097152
@@ -111,7 +111,7 @@ key_name = 'juno-rly'
 store_prefix = 'ibc'
 default_gas = 100000
 max_gas = 4000000
-gas_price = { price = 0.001, denom = 'ujunox' }
+gas_price = { price = 0.0025, denom = 'ujunox' }
 gas_multiplier = 1.2
 max_msg_num = 30
 max_tx_size = 2097152
