@@ -25,7 +25,7 @@
 
 6. Install Hermes binary
 
-	mkdir -p $HOME/.hermes/bin  
+		mkdir -p $HOME/.hermes/bin  
         cd $HOME/.hermes/bin  
         wget https://github.com/informalsystems/ibc-rs/releases/download/v1.0.0-rc.0/hermes-v1.0.0-rc.0-x86_64-unknown-linux-gnu.tar.gz
         tar -C $HOME/.hermes/bin/ -vxzf hermes-v1.0.0-rc.0-x86_64-unknown-linux-gnu.tar.gz
