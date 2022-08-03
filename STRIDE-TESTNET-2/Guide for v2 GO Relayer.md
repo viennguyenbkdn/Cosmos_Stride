@@ -1,4 +1,4 @@
-# Setup Hermes Relayer between Stride and GAIA on existing specific channels
+# Setup v2 GO Relayer between Stride and GAIA on existing specific channels
 1. RPC Endpoint of GAIA fullnode
     + If you intend to setup your own node, follow below guideline from kjnode
         - [GAIA node setup guide](https://github.com/kj89/testnet_manuals/tree/main/stride/GAIA/README.md)
