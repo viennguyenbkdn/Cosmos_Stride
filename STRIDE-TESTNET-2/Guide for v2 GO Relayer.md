@@ -62,11 +62,11 @@ cd ~ && rly config init --memo "$YOUR_DISCORD_NAME"
 ### Set variable
 SRC_CHAIN="STRIDE-TESTNET-2"
 SRC_KEY="stride-rly"
-SRC_MNEMONIC_PHRASE="notable object move space find nose chunk picture episode scrap pupil field crash parent anger then muscle impose ahead strong settle youth lazy flower"
+SRC_MNEMONIC_PHRASE="24 seed phrases"
         
 DST_CHAIN="GAIA"
 DST_KEY="gaia-rly"
-DST_MNEMONIC_PHRASE="notable object move space find nose chunk picture episode scrap pupil field crash parent anger then muscle impose ahead strong settle youth lazy flower"
+DST_MNEMONIC_PHRASE="24 seed phrases"
         
 ### Make config data
 cd $HOME/.relayer/config
