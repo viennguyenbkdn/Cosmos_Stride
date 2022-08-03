@@ -46,14 +46,14 @@
         source $HOME/.cargo/env
         
 7. Install v2 GO Relayer
-        ```
-        git clone https://github.com/cosmos/relayer.git
-        cd relayer/
-        git checkout v2.0.0-rc4
-        make install     
-        which rly
-	chmod +x $(which rly)
-	```
+```
+git clone https://github.com/cosmos/relayer.git
+cd relayer/
+git checkout v2.0.0-rc4
+make install     
+which rly
+chmod +x $(which rly)
+```
 8. Setup v2 GO Relayer between Stride and GAIA
 ```
 YOUR_DISCORD_NAME="Put your discord ID"
