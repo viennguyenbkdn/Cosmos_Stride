@@ -1,4 +1,4 @@
-# Setup IBC Relayer between Stride and Juno/GAIA
+# Setup Hermes Relayer between Stride and Juno/GAIA
 1. RPC Endpoint of GAIA fullnode, Juno fullnode
     + If you intend to setup your own node, follow below guideline from kjnode
         - [Juno node setup guide](https://github.com/kj89/testnet_manuals/tree/main/juno)
