@@ -174,3 +174,6 @@ rly transact transfer $DST_CHAIN $SRC_CHAIN 100uatom $(rly chains address $DST_C
 
 2022-08-03T02:15:50.495329Z     info    Successful transaction  {"provider_type": "cosmos", "chain_id": "GAIA", "packet_src_channel": "channel-0", "packet_dst_channel": "channel-0", "gas_used": 88763, "fees": "234uatom", "fee_payer": "cosmos122qwd8nyxx4ywyc3c0hgwlq25a82j4vptx3t3e", "height": 121362, "msg_types": ["/ibc.applications.transfer.v1.MsgTransfer"], "tx_hash": "549636B06F7F141E2965A4D467494589E683390634551B558A041A461F2B5DB0"}
 ```
+
+12. Check transaction of your wallet on explorer to findout the message Update Client for GO-Relayer
+![image](https://user-images.githubusercontent.com/91453629/182510531-4a80e5fa-e113-485a-8e29-f71df360fff2.png)
