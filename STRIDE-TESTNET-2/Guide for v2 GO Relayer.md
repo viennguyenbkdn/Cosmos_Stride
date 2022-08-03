@@ -123,9 +123,7 @@ paths:
         src-channel-filter:
             rule: "allowlist"
             channel-list: [channel-0, channel-1, channel-2, channel-3, channel-4]	      
-EOF
-```        
-        
+EOF     
         
 ### Import keys into GO Relayer
 rly keys restore $SRC_CHAIN $SRC_KEY "$SRC_MNEMONIC_PHRASE"
@@ -134,6 +132,7 @@ rly keys restore $DST_CHAIN $DST_KEY "$DST_MNEMONIC_PHRASE"
 ### Check balance 
 rly q balance $SRC_CHAIN
 rly q balance $DST_CHAIN
+```
 
 9. Make systemd service
 ```
@@ -163,4 +162,15 @@ sudo systemctl restart rlyd
 sudo journalctl -fu rlyd -o cat
 ```
 
+11. Try to send raw data between 2 relayers via established channel ID (optional)   
+```
+### STRIDE to GAIA
+rly transact transfer $SRC_CHAIN $DST_CHAIN 1000ustrd $(rly chains address $SRC_CHAIN) channel-0 --path STRIDE-GAIA
 
+2022-08-03T02:14:04.891557Z     info    Successful transaction  {"provider_type": "cosmos", "chain_id": "STRIDE-TESTNET-2", "packet_src_channel": "channel-0", "packet_dst_channel": "channel-0", "gas_used": 88442, "fees": "234ustrd", "fee_payer": "stride122qwd8nyxx4ywyc3c0hgwlq25a82j4vpgd3h94", "height": 63136, "msg_types": ["/ibc.applications.transfer.v1.MsgTransfer"], "tx_hash": "38338B0EC4F30498CA51D7DBE8B3937C15E02961FDFA1A8A008C7F85742312F8"}
+
+### GAIA to STRIDE
+rly transact transfer $DST_CHAIN $SRC_CHAIN 100uatom $(rly chains address $DST_CHAIN) channel-0 --path STRIDE-GAIA
+
+2022-08-03T02:15:50.495329Z     info    Successful transaction  {"provider_type": "cosmos", "chain_id": "GAIA", "packet_src_channel": "channel-0", "packet_dst_channel": "channel-0", "gas_used": 88763, "fees": "234uatom", "fee_payer": "cosmos122qwd8nyxx4ywyc3c0hgwlq25a82j4vptx3t3e", "height": 121362, "msg_types": ["/ibc.applications.transfer.v1.MsgTransfer"], "tx_hash": "549636B06F7F141E2965A4D467494589E683390634551B558A041A461F2B5DB0"}
+```
