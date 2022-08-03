@@ -123,7 +123,7 @@ paths:
         src-channel-filter:
             rule: "allowlist"
             channel-list: [channel-0, channel-1, channel-2, channel-3, channel-4]	      
-EOF     
+EOF
         
 ### Import keys into GO Relayer
 rly keys restore $SRC_CHAIN $SRC_KEY "$SRC_MNEMONIC_PHRASE"
