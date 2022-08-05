@@ -35,3 +35,13 @@ strided tx stakeibc claim-undelegated-tokens $GAIA_CHAIN_ID 413 stride1n3nt4zm9p
 - Check txh from ur wallet in explorer
 ![image](https://user-images.githubusercontent.com/91453629/183053573-e5e5c1e7-426f-4a59-943f-4480de0de473.png)
 
+====================================================================================  
+**Task 7: run a relayer on ICA channels specified in #validator-announcements for at least 7 days**
+- Follow below link for setting up Hermes Relayer   
+    [HERMES Relayer](https://github.com/viennguyenbkdn/Cosmos_Stride/blob/main/STRIDE-TESTNET-2/Guide%20for%20Hermes%20Relayer.md)
+- Follow below link for setting up GO Relayer   
+    [GO Relayer](https://github.com/viennguyenbkdn/Cosmos_Stride/blob/main/STRIDE-TESTNET-2/Guide%20for%20v2%20GO%20Relayer.md)
+- Team will snapshot, no need to submit form
+
+==================================================================================== 
+   
