@@ -50,9 +50,9 @@ strided tx stakeibc claim-undelegated-tokens $GAIA_CHAIN_ID 413 stride1n3nt4zm9p
 - Submit form as team required.    
 
 ====================================================================================  
-** Task 9: relay interchain queries using the new v2 go relayer **
+**Task 9: relay interchain queries using the new v2 go relayer**
 
 ====================================================================================  
-** Task 10: run validator for at least 7 days (being inactive is OK, it still qualifies) **
+**Task 10: run validator for at least 7 days (being inactive is OK, it still qualifies)**
 - Team will snapshot onchain, no need submit
 
