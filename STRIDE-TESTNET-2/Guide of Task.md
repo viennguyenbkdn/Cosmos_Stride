@@ -45,14 +45,15 @@ strided tx stakeibc claim-undelegated-tokens $GAIA_CHAIN_ID 413 stride1n3nt4zm9p
 
 ====================================================================================  
 **Task 8: relay using the new v2 go relayer**   
-- Follow below link for setting up GO Relayer   
-    [GO Relayer](https://github.com/viennguyenbkdn/Cosmos_Stride/blob/main/STRIDE-TESTNET-2/Guide%20for%20v2%20GO%20Relayer.md)
+- Follow below link for setting up GO Relayer
+    - [GO Relayer](https://github.com/viennguyenbkdn/Cosmos_Stride/blob/main/STRIDE-TESTNET-2/Guide%20for%20v2%20GO%20Relayer.md)
 - Submit form as team required.    
 
 ====================================================================================  
 **Task 9: relay interchain queries using the new v2 go relayer**
-- Follow below link for setting up ICQ
-    [ICQ Setup](https://github.com/viennguyenbkdn/Cosmos_Stride/blob/ICQ/STRIDE-TESTNET-2/Guide%20for%20setup%20ICQ%20between%20Strided-GAIA.md)
+- Follow below link for setting up ICQ   
+    - [ICQ Setup](https://github.com/viennguyenbkdn/Cosmos_Stride/blob/ICQ/STRIDE-TESTNET-2/Guide%20for%20setup%20ICQ%20between%20Strided-GAIA.md)
+    
 ====================================================================================  
 **Task 10: run validator for at least 7 days (being inactive is OK, it still qualifies)**
 - Team will snapshot onchain, no need submit
