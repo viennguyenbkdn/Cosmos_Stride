@@ -67,6 +67,8 @@ SRC_MNEMONIC_PHRASE="24 seed phrases"
 DST_CHAIN="GAIA"
 DST_KEY="gaia-rly"
 DST_MNEMONIC_PHRASE="24 seed phrases"
+
+PATH_NAME="YOUR CUSTOMIZE NAME"
         
 ### Make config data
 cd $HOME/.relayer/config
@@ -111,13 +113,13 @@ chains:
             sign-mode: direct
             memo-prefix: $YOUR_DISCORD_NAME
 paths:
-    STRIDE-GAIA:
+    $PATH_NAME:
         src:
-            chain-id: $SRC_CHAIN
+            chain-id: $DST_CHAIN
             client-id: 07-tendermint-0
             connection-id: connection-0
         dst:
-            chain-id: GAIA
+            chain-id: $SRC_CHAIN
             client-id: 07-tendermint-0
             connection-id: connection-0
         src-channel-filter:
@@ -143,7 +145,7 @@ After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which rly) start STRIDE-GAIA --memo "$YOUR_DISCORD_NAME"
+ExecStart=$(which rly) start $PATH_NAME --memo "$YOUR_DISCORD_NAME"
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
