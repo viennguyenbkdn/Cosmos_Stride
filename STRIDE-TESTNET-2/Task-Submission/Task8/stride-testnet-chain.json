@@ -1,7 +1,7 @@
 {
   "type": "cosmos",
   "value": {
-    "key": "default",
+    "key": "vps16g204",
     "chain-id": "STRIDE-TESTNET-2",
     "rpc-addr": "http://localhost:16657",
     "grpc_addr": "http://localhost:16090",
