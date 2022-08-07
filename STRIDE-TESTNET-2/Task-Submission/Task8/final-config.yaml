@@ -10,7 +10,7 @@ chains:
             key: vps16g204
             chain-id: GAIA
             rpc-addr: http://185.249.225.35:23657
-            grpc-addr: http://185.249.225.35:23661
+            grpc-addr: http://185.249.225.35:23090
             account-prefix: cosmos
             keyring-backend: test
             gas-adjustment: 1.2
@@ -26,6 +26,7 @@ chains:
             key: vps16g204
             chain-id: STRIDE-TESTNET-2
             rpc-addr: http://localhost:16657
+            grpc-addr: http://localhost:16090
             account-prefix: stride
             keyring-backend: test
             gas-adjustment: 1.2
