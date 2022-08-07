@@ -1,1 +1,50 @@
-
+global:
+    api-listen-addr: :5183
+    timeout: 300s
+    memo: VienNguyen#4040
+    light-cache-size: 20
+chains:
+    GAIA:
+        type: cosmos
+        value:
+            key: vps16g204
+            chain-id: GAIA
+            rpc-addr: http://185.249.225.35:23657
+            grpc-addr: http://185.249.225.35:23661
+            account-prefix: cosmos
+            keyring-backend: test
+            gas-adjustment: 1.2
+            gas-prices: 0.0025uatom
+            debug: true
+            timeout: 300s
+            output-format: json
+            sign-mode: direct
+            memo-prefix: VienNguyen#4040
+    STRIDE-TESTNET-2:
+        type: cosmos
+        value:
+            key: vps16g204
+            chain-id: STRIDE-TESTNET-2
+            rpc-addr: http://localhost:16657
+            account-prefix: stride
+            keyring-backend: test
+            gas-adjustment: 1.2
+            gas-prices: 0.0025ustrd
+            debug: true
+            timeout: 300s
+            output-format: json
+            sign-mode: direct
+            memo-prefix: VienNguyen#4040
+paths:
+    STRIDE-GAIA:
+        src:
+            chain-id: STRIDE-TESTNET-2
+            client-id: 07-tendermint-0
+            connection-id: connection-0
+        dst:
+            chain-id: GAIA
+            client-id: 07-tendermint-0
+            connection-id: connection-0
+        src-channel-filter:
+            rule: "allowlist"
+            channel-list: [channel-0, channel-1, channel-2, channel-3, channel-4]
