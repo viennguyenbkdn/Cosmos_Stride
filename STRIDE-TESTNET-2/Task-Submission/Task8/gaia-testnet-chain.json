@@ -1,1 +1,19 @@
+{
+  "type": "cosmos",
+  "value": {
+    "key": "default",
+    "chain-id": "GAIA",
+    "rpc-addr": "http://185.249.225.35:23657",
+    "grpc_addr": "http://185.249.225.35:23090",
+    "account-prefix": "cosmos",
+    "keyring-backend": "test",
+    "gas-adjustment": 1.2,
+    "gas-prices": "0.0025uatom",
+    "clock_drift": "20s",
+    "debug": true,
+    "timeout": "300s",
+    "output-format": "json",
+    "sign-mode": "direct"
+  }
+}
 
