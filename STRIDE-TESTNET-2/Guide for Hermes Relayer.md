@@ -75,7 +75,7 @@ host = '127.0.0.1'
 port = 3001
 
 [[chains]]
-id = 'STRIDE-TESTNET-2'
+id = 'STRIDE-TESTNET-4'
 rpc_addr = 'http://10.10.10.10:16657'
 grpc_addr = 'http://10.10.10.10:16090'
 websocket_addr = 'ws://10.10.10.10:16657/websocket'
@@ -163,7 +163,7 @@ host = '127.0.0.1'
 port = 3001
 
 [[chains]]
-id = 'STRIDE-TESTNET-2'
+id = 'STRIDE-TESTNET-4'
 rpc_addr = 'http://localhost:16657'
 grpc_addr = 'http://localhost:16090'
 websocket_addr = 'ws://localhost:16657/websocket'
