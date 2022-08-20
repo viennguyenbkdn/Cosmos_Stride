@@ -60,7 +60,7 @@ YOUR_DISCORD_NAME="Put your discord ID"
 cd ~ && rly config init --memo "$YOUR_DISCORD_NAME"
         
 ### Set variable
-SRC_CHAIN="STRIDE-TESTNET-2"
+SRC_CHAIN="STRIDE-TESTNET-4"
 SRC_KEY="stride-rly"
 SRC_MNEMONIC_PHRASE="24 seed phrases"
         
@@ -86,8 +86,7 @@ chains:
         value:
             key: $DST_KEY
             chain-id: $DST_CHAIN
-            rpc-addr: http://185.249.225.35:23657
-            grpc-addr: http://185.249.225.35:23661
+            rpc-addr: http://95.216.21.32:23657
             account-prefix: cosmos
             keyring-backend: test
             gas-adjustment: 1.2
@@ -97,7 +96,7 @@ chains:
             output-format: json
             sign-mode: direct
             memo-prefix: $YOUR_DISCORD_NAME
-    STRIDE-TESTNET-2:
+    STRIDE-TESTNET-4:
         type: cosmos
         value:
             key: $SRC_KEY
@@ -169,7 +168,7 @@ sudo journalctl -fu rlyd -o cat
 ### STRIDE to GAIA
 rly transact transfer $SRC_CHAIN $DST_CHAIN 1000ustrd $(rly chains address $DST_CHAIN) channel-0 --path STRIDE-GAIA
 
-2022-08-03T02:14:04.891557Z     info    Successful transaction  {"provider_type": "cosmos", "chain_id": "STRIDE-TESTNET-2", "packet_src_channel": "channel-0", "packet_dst_channel": "channel-0", "gas_used": 88442, "fees": "234ustrd", "fee_payer": "stride122qwd8nyxx4ywyc3c0hgwlq25a82j4vpgd3h94", "height": 63136, "msg_types": ["/ibc.applications.transfer.v1.MsgTransfer"], "tx_hash": "38338B0EC4F30498CA51D7DBE8B3937C15E02961FDFA1A8A008C7F85742312F8"}
+2022-08-03T02:14:04.891557Z     info    Successful transaction  {"provider_type": "cosmos", "chain_id": "STRIDE-TESTNET-4", "packet_src_channel": "channel-0", "packet_dst_channel": "channel-0", "gas_used": 88442, "fees": "234ustrd", "fee_payer": "stride122qwd8nyxx4ywyc3c0hgwlq25a82j4vpgd3h94", "height": 63136, "msg_types": ["/ibc.applications.transfer.v1.MsgTransfer"], "tx_hash": "38338B0EC4F30498CA51D7DBE8B3937C15E02961FDFA1A8A008C7F85742312F8"}
 
 ### GAIA to STRIDE
 rly transact transfer $DST_CHAIN $SRC_CHAIN 100uatom $(rly chains address $SRC_CHAIN) channel-0 --path STRIDE-GAIA
