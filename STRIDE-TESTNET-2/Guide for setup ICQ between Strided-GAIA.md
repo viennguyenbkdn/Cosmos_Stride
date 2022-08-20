@@ -14,13 +14,13 @@ mv interchain-queries /usr/local/bin/
 ```
 cd $HOME && mkdir .icq
 sudo tee $HOME/.icq/config.yaml > /dev/null <<EOF
-default_chain: STRIDE-TESTNET-2
+default_chain: STRIDE-TESTNET-4
 chains:
   GAIA:
     key: gaia-icq
     chain-id: GAIA
-    rpc-addr: http://185.249.225.35:23657
-    grpc-addr: http://185.249.225.35:23090
+    rpc-addr: http://95.216.21.32:23657
+    grpc-addr: http://95.216.21.32:23090
     account-prefix: cosmos
     keyring-backend: test
     gas-adjustment: 1.2
@@ -31,9 +31,9 @@ chains:
     block-timeout: ""
     output-format: json
     sign-mode: direct
-  STRIDE-TESTNET-2:
+  STRIDE-TESTNET-4:
     key: stride-icq
-    chain-id: STRIDE-TESTNET-2
+    chain-id: STRIDE-TESTNET-4
     rpc-addr: http://localhost:16657
     grpc-addr: http://localhost:16090
     account-prefix: stride
@@ -57,7 +57,7 @@ _**Edit RPC,GPRC and Port if you using your own GAIA/STRIDE nodes**_
 4. Import these wallets of STRIDE and GAIA chains which are being used for V2 GO Relayer
 ```
 interchain-queries keys restore --chain GAIA gaia-icq
-interchain-queries keys restore --chain STRIDE-TESTNET-2 stride-icq
+interchain-queries keys restore --chain STRIDE-TESTNET-4 stride-icq
 ```
 
 5. Create systemd service for ICQ
